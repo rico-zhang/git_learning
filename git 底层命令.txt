@@ -1,0 +1,32 @@
+object:
+git cat-file -p <hash>   
+git cat-file -p master^{tree}
+
+git cat-file -t <hash>  
+
+git cat-file -s <hash>
+
+git update-index --add --cacheinfo 100644 \  <hash> test.txt  
+git update-index --add new.txt
+
+git write-tree
+
+git read-tree  --prefix=bak <tree-hash>
+
+echo 'first commit' | git commit-tree <tree-hash>
+echo 'second commit' | git commit-tree <tree-hash> - p <commit-hash>
+
+ref:
+git update-ref refs/heads/master <commit-hash>
+git update-ref -d refs/heads/dev <commit-hash>
+
+git symbolic-ref HEAD
+git symbolic-ref HEAD refs/heads/master
+
+git gc
+
+git verify-pack -v .git/objects/pack/pack-....idx
+
+
+
+
